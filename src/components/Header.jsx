@@ -58,10 +58,10 @@ const Header = () => {
                         initial={{ opacity: 0, x: 200 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 200 }} className="flex items-center gap-8">
-                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Home</li>
-                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Menu</li>
-                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">About Us</li>
-                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Service</li>
+                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>Home</li>
+                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>Menu</li>
+                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>About Us</li>
+                        <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>Service</li>
                     </motion.ul>
 
                     <div className="relative flex items-center justify-center">
@@ -89,7 +89,7 @@ const Header = () => {
                                     {
                                         user && user.email === "bhaktabhim2001@gmail.com" && (
                                             <Link to={"/createItem"}>
-                                                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base">Add Item <MdAdd /></p>
+                                                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base" onClick={() => setIsMenu(false)}>Add Item <MdAdd /></p>
 
                                             </Link>
                                         )
@@ -138,7 +138,7 @@ const Header = () => {
                                 {
                                     user && user.email === "bhaktabhim2001@gmail.com" && (
                                         <Link to={"/createItem"}>
-                                            <p className="px-4 py-2 flex items-center cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base">Add Item <MdAdd /></p>
+                                            <p className="px-4 py-2 flex items-center cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base" onClick={() => setIsMenu(false)}>Add Item <MdAdd /></p>
 
                                         </Link>
                                     )
@@ -146,10 +146,10 @@ const Header = () => {
 
                                 <ul
                                     className="flex flex-col">
-                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2">Home</li>
-                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2">Menu</li>
-                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2">About Us</li>
-                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2">Service</li>
+                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2" onClick={() => setIsMenu(false)}>Home</li>
+                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2" onClick={() => setIsMenu(false)}>Menu</li>
+                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2" onClick={() => setIsMenu(false)}>About Us</li>
+                                    <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2" onClick={() => setIsMenu(false)}>Service</li>
                                 </ul>
 
                                 <p className="px-4 py-2 flex items-center gap-3 cursor-pointer bg-gray-200 hover:bg-gray-400 transition-all duration-100 ease-in-out text-textColor text-base" onClick={logout}>LogOut <MdLogout /></p>
