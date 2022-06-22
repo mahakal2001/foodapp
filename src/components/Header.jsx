@@ -15,7 +15,7 @@ const Header = () => {
     const firebaseAuth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user, cartShow }, dispatch] = useStateValue();
 
     const [isMenu, setIsMenu] = useState(false)
 
@@ -44,6 +44,14 @@ const Header = () => {
             user: null,
         });
     };
+
+    const showCart = () =>{
+        dispatch({
+            type: actionType.SET_CART_SHOW,
+            cartShow: !cartShow,
+        });
+
+    }
     return (
         <header className="fixed z-50 w-screen p-3 px-4 md:p-6 bg-primary md:px-16">
             {/* Desktop and Tablet Start */}
@@ -64,7 +72,7 @@ const Header = () => {
                         <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>Service</li>
                     </motion.ul>
 
-                    <div className="relative flex items-center justify-center">
+                    <div className="relative flex items-center justify-center" onClick={showCart}>
                         <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer" />
                         <div className="absolute -top-3 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
                             <p className="text-xs text-white font-semibold">0</p>
@@ -108,7 +116,7 @@ const Header = () => {
             {/* Mobile Start*/}
             <div className="flex items-center justify-between md:hidden h-full">
 
-                <div className="relative flex items-center justify-center">
+                <div className="relative flex items-center justify-center" onClick={showCart}>
                     <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer" />
                     <div className="absolute -top-3 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
                         <p className="text-xs text-white font-semibold">0</p>
