@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react"; //useRef
+import HomeContainer from "./HomeContainer";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
-import { CartContainer, HomeContainer, MenuContainer } from '.';
-import { useStateValue } from '../context/StateProvider';
-import { useRef } from 'react';
+import { useStateValue } from "../context/StateProvider";
+import MenuContainer from "./MenuContainer";
+import CartContainer from "./CartContainer";
 
 const MainContainer = () => {
-  const [{foodItems,cartShow}, dispatch] = useStateValue();
+  const [{ foodItems, cartShow }] = useStateValue();//dispatch
   const [scrollValue, setScrollValue] = useState(0);
 
-  useEffect(() => {}, [scrollValue]);
-
-  
+  useEffect(() => {}, [scrollValue, cartShow]);
 
   return (
-    <div className='w-full h-auto flex flex-col items-center justify-between'>
-      <HomeContainer/>
+    <div className="w-full h-auto flex flex-col items-center justify-center ">
+      <HomeContainer />
 
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
@@ -41,7 +40,6 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
-      
         <RowContainer
           scrollValue={scrollValue}
           flag={true}
@@ -49,13 +47,11 @@ const MainContainer = () => {
         />
       </section>
 
-      <MenuContainer/>
-      {cartShow && (
-        <CartContainer/>
-      )}
-      
+      <MenuContainer />
+
+      {cartShow && <CartContainer />}
     </div>
-  )
-}
+  );
+};
 
 export default MainContainer;
